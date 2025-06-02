@@ -1,0 +1,43 @@
+{
+	"name": "iot-front",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vue-tsc -b && vite build",
+		"preview": "vite preview",
+		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+		"type-check": "vue-tsc --noEmit"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^6.7.2",
+		"@fortawesome/free-brands-svg-icons": "^6.7.2",
+		"@fortawesome/free-regular-svg-icons": "^6.7.2",
+		"@fortawesome/free-solid-svg-icons": "^6.7.2",
+		"@fortawesome/vue-fontawesome": "^3.0.8",
+		"pinia": "^2.3.1",
+		"vue": "^3.5.16"
+	},
+	"devDependencies": {
+		"@types/node": "^22.10.1",
+		"@typescript-eslint/eslint-plugin": "^8.33.0",
+		"@typescript-eslint/parser": "^8.33.0",
+		"@vitejs/plugin-vue": "^5.2.4",
+		"@vue/tsconfig": "^0.7.0",
+		"eslint": "^9.28.0",
+		"eslint-import-resolver-alias": "^1.1.2",
+		"eslint-import-resolver-typescript": "^3.7.0",
+		"eslint-plugin-import": "^2.31.0",
+		"eslint-plugin-prettier": "^5.4.1",
+		"eslint-plugin-vue": "^9.33.0",
+		"eslint-plugin-vuejs-accessibility": "^2.4.1",
+		"prettier": "^3.5.3",
+		"sass": "^1.89.1",
+		"sass-loader": "^16.0.5",
+		"typescript": "~5.8.3",
+		"vite": "^6.3.5",
+		"vue-eslint-parser": "^9.4.3",
+		"vue-tsc": "^2.2.10"
+	}
+}
