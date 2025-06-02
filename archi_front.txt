@@ -1,0 +1,106 @@
+﻿├── public
+│   └── vite.svg
+├── src
+│   ├── assets
+│   │   └── vue.svg
+│   ├── components
+│   │   ├── base
+│   │   │   └── BaseButton.vue
+│   │   │   └── BaseCheckbox.vue
+│   │   │   └── BaseForm.vue
+│   │   │   └── BaseFormField.vue
+│   │   │   └── BaseIcon.vue
+│   │   │   └── BaseInput.vue
+│   │   │   └── BaseLink.vue
+│   │   │   └── BaseRadio.vue
+│   │   │   └── BaseSelect.vue
+│   │   │   └── BaseSwitch.vue
+│   │   │   └── BaseTextarea.vue
+│   │   ├── feature
+│   │   │   ├── alerts
+│   │   │   ├── auth
+│   │   │   ├── camera
+│   │   │   ├── members
+│   │   ├── feedback
+│   │   │   └── AlertItem.vue
+│   │   │   └── AlertList.vue
+│   │   │   └── EmptyState.vue
+│   │   │   └── ErrorMessage.vue
+│   │   │   └── Modal.vue
+│   │   │   └── Toast.vue
+│   │   ├── layouts
+│   │   │   └── Footer.vue
+│   │   │   └── FooterContact.vue
+│   │   │   └── FooterContactItem.vue
+│   │   │   └── FooterSocial.vue
+│   │   │   └── Header.vue
+│   │   │   └── Section.vue
+│   │   ├── navigation
+│   │   │   └── Breadcrumb.vue
+│   │   │   └── MobileMenu.vue
+│   │   │   └── MobileMenuItem.vue
+│   │   │   └── MobileMenuToggle.vue
+│   │   │   └── NavBar.vue
+│   │   │   └── NavbarItem.vue
+│   │   │   └── Pagination.vue
+│   │   │   └── PaginationItem.vue
+│   │   │   └── SideBar.vue
+│   │   │   └── SideBarItem.vue
+│   │   │   └── Tabs.vue
+│   │   │   └── TabsItem.vue
+│   │   ├── ui
+│   │   │   └── AppLogo.vue
+│   │   │   └── Avatar.vue
+│   │   │   └── Badge.vue
+│   │   │   └── Card.vue
+│   │   │   └── CTA.vue
+│   │   │   └── Hero.vue
+│   │   │   └── PortfolioSummary.vue
+│   │   │   └── ProgressBar.vue
+│   │   │   └── RatingStars.vue
+│   │   │   └── SectionHeading.vue
+│   │   │   └── Swiper.vue
+│   │   │   └── Tooltip.vue
+│   ├── composables
+│   ├── config
+│   │   └── routes.ts
+│   ├── router
+│   │   └── index.ts
+│   ├── stores
+│   ├── styles
+│   │   ├── abstracts
+│   │   │   └── functions.scss
+│   │   │   └── mixins.scss
+│   │   │   └── variables.scss
+│   │   ├── base
+│   │   │   └── animations.scss
+│   │   │   └── reset.scss
+│   │   │   └── typography.scss
+│   │   └── main.scss
+│   ├── types
+│   ├── utils
+│   ├── views
+│   │   ├── auth
+│   │   │   └── LoginView.vue
+│   │   │   └── RegisterView.vue
+│   │   ├── dashboard
+│   │   │   └── HomeView.vue
+│   │   ├── members
+│   │   │   └── AddMemberView.vue
+│   │   │   └── MemberDetailView.vue
+│   │   │   └── MembersView.vue
+│   └── App.vue
+│   └── env.d.ts
+│   └── main.ts
+│   └── style.css
+└── .gitignore
+└── .prettierrc
+└── eslint.config.mjs
+└── index.html
+└── package.json
+└── pnpm-lock.yaml
+└── README.md
+└── tsconfig.app.json
+└── tsconfig.json
+└── tsconfig.node.json
+└── vite.config.ts

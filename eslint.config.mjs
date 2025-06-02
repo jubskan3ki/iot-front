@@ -38,7 +38,6 @@ export default [
 
 			'vue/component-tags-order': ['error', { order: ['template', 'script', 'style'] }],
 			'vue/define-macros-order': ['error', { order: ['defineProps', 'defineEmits'] }],
-			'vue/html-indent': ['error', 4, { baseIndent: 1 }],
 			'vue/attribute-hyphenation': ['error', 'always'],
 			'vue/component-api-style': ['error', ['script-setup', 'composition']],
 			'vue/no-unused-components': 'warn',
