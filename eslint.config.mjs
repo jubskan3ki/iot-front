@@ -1,22 +1,33 @@
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import importPlugin from 'eslint-plugin-import';
 import prettierPlugin from 'eslint-plugin-prettier';
 import vuePlugin from 'eslint-plugin-vue';
-import vueA11yPlugin from 'eslint-plugin-vuejs-accessibility';
 import vueParser from 'vue-eslint-parser';
 
-const parserOptionsWithTypes = {
-	project: './tsconfig.app.json',
-	tsconfigRootDir: process.cwd(),
-	ecmaVersion: 'latest',
-	sourceType: 'module',
-};
-
 export default [
+	// 🚫 FICHIERS IGNORÉS
 	{
-		ignores: ['dist/**/*', 'node_modules/**/*', '**/*.config.ts', '.output/**/*'],
+		ignores: ['dist/**', 'node_modules/**', '.output/**', '.nuxt/**'],
 	},
+
+	// 🔧 BASE - Tous les fichiers
+	{
+		files: ['**/*.{js,ts,vue}'],
+		plugins: {
+			prettier: prettierPlugin,
+		},
+		rules: {
+			// Formatage
+			'prettier/prettier': 'error',
+
+			// Code propre
+			'no-debugger': 'error',
+			'no-var': 'error',
+			'prefer-const': 'error',
+		},
+	},
+
+	// 🎭 VUE - Composants Vue
 	{
 		files: ['**/*.vue'],
 		languageOptions: {
@@ -25,157 +36,53 @@ export default [
 				parser: tsParser,
 				ecmaVersion: 'latest',
 				sourceType: 'module',
-				extraFileExtensions: ['.vue'],
 			},
 		},
 		plugins: {
 			vue: vuePlugin,
-			prettier: prettierPlugin,
-			'vuejs-accessibility': vueA11yPlugin,
+			'@typescript-eslint': tsPlugin,
 		},
 		rules: {
-			'prettier/prettier': 'error',
-
+			// Structure des composants
 			'vue/component-tags-order': ['error', { order: ['template', 'script', 'style'] }],
-			'vue/define-macros-order': ['error', { order: ['defineProps', 'defineEmits'] }],
+			'vue/component-api-style': ['error', ['script-setup']],
+
+			// Nommage
+			'vue/component-name-in-template-casing': ['error', 'PascalCase'],
 			'vue/attribute-hyphenation': ['error', 'always'],
-			'vue/component-api-style': ['error', ['script-setup', 'composition']],
+
+			// Erreurs communes
 			'vue/no-unused-components': 'warn',
-			'vue/no-v-html': 'off',
+			'vue/no-unused-vars': 'warn',
 			'vue/multi-word-component-names': 'off',
+			'vue/no-v-html': 'off',
 
-			'vue/require-default-prop': 'off',
-			'vue/no-v-text-v-html-on-component': 'warn',
-			'vue/no-useless-template-attributes': 'error',
-			'vue/no-static-inline-styles': 'warn',
-			'vue/no-duplicate-attributes': 'error',
-			'vue/no-unused-properties': [
-				'warn',
-				{
-					groups: ['props', 'data', 'computed', 'methods'],
-					deepData: true,
-				},
-			],
-			'vue/block-order': [
-				'error',
-				{
-					order: ['template', 'script', 'style'],
-				},
-			],
-			'vue/attributes-order': 'warn',
-			'vue/order-in-components': 'warn',
-
-			'vuejs-accessibility/click-events-have-key-events': 'warn',
+			// TypeScript dans Vue
+			'@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
 		},
 	},
 
+	// 🔷 TYPESCRIPT - Fichiers .ts
 	{
-		files: ['**/*.ts', '**/*.tsx'],
+		files: ['**/*.ts'],
 		languageOptions: {
 			parser: tsParser,
-			parserOptions: parserOptionsWithTypes,
-			globals: {
-				window: 'readonly',
-				document: 'readonly',
-				console: 'readonly',
-				NodeJS: 'readonly',
+			parserOptions: {
+				project: './tsconfig.app.json',
+				ecmaVersion: 'latest',
+				sourceType: 'module',
 			},
 		},
 		plugins: {
 			'@typescript-eslint': tsPlugin,
-			prettier: prettierPlugin,
-			import: importPlugin,
 		},
 		rules: {
-			'prettier/prettier': 'error',
-
+			// Variables et types
 			'@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-			'@typescript-eslint/ban-ts-comment': 'warn',
 			'@typescript-eslint/consistent-type-imports': 'error',
-			'@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-			'@typescript-eslint/no-inferrable-types': 'warn',
+
+			// Bonnes pratiques
 			'@typescript-eslint/prefer-optional-chain': 'warn',
-
-			'@typescript-eslint/prefer-ts-expect-error': 'error',
-			'@typescript-eslint/switch-exhaustiveness-check': 'warn',
-			'@typescript-eslint/no-misused-promises': ['warn', { checksVoidReturn: false }],
-
-			'import/order': [
-				'warn',
-				{
-					groups: ['builtin', 'external', 'internal', ['parent', 'sibling'], 'index'],
-					pathGroups: [
-						{
-							pattern: '@/**',
-							group: 'internal',
-							position: 'after',
-						},
-						{
-							pattern: '@components/**',
-							group: 'internal',
-							position: 'after',
-						},
-						{
-							pattern: '@views/**',
-							group: 'internal',
-							position: 'after',
-						},
-						{
-							pattern: '@stores/**',
-							group: 'internal',
-							position: 'after',
-						},
-						{
-							pattern: '@utils/**',
-							group: 'internal',
-							position: 'after',
-						},
-						{
-							pattern: '@assets/**',
-							group: 'internal',
-							position: 'after',
-						},
-						{
-							pattern: './*.{css,scss,sass,less}',
-							group: 'index',
-							position: 'after',
-						},
-					],
-					pathGroupsExcludedImportTypes: ['builtin'],
-					'newlines-between': 'always',
-					alphabetize: {
-						order: 'asc',
-						caseInsensitive: true,
-					},
-				},
-			],
-			'import/extensions': [
-				'error',
-				'ignorePackages',
-				{ js: 'never', ts: 'never', vue: 'always', scss: 'always' },
-			],
-			'import/no-unresolved': 'error',
-			'import/no-relative-packages': 'error',
-		},
-		settings: {
-			'import/resolver': {
-				typescript: {
-					alwaysTryTypes: true,
-					project: './tsconfig.app.json',
-				},
-				alias: {
-					map: [
-						['@', './src'],
-						['@components', './src/components'],
-						['@views', './src/views'],
-						['@stores', './src/stores'],
-						['@utils', './src/utils'],
-						['@assets', './src/assets'],
-						['@types', './src/types'],
-					],
-					extensions: ['.ts', '.js', '.vue', '.json'],
-				},
-			},
 		},
 	},
 ];

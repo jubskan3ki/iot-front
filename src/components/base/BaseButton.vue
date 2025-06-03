@@ -89,7 +89,7 @@
 
 <script setup lang="ts">
 	import { createPath } from '@/config/routes';
-	import { computed, PropType } from 'vue';
+	import { computed, type PropType } from 'vue';
 
 	// Type pour les objets route
 	type RouteObject = { path: string; name?: string };

@@ -1,15 +1,15 @@
 <template>
-	<div class="alert-list" :class="positionClass">
-		<transition-group name="alert-transition">
-			<AlertItem v-for="alert in alerts" :key="alert.id" :alert="alert" @close="removeAlert" />
+	<div class="notif-list" :class="positionClass">
+		<transition-group name="notif-transition">
+			<NotifItem v-for="notif in notifs" :key="notif.id" :notif="notif" @close="removeNotif" />
 		</transition-group>
 	</div>
 </template>
 
 <script setup lang="ts">
-	import { useAlertStore } from '@/store/alert';
+	import { useNotifStore } from '@/stores/notifications';
 	import { computed } from 'vue';
-	import AlertItem from './AlertItem.vue';
+	import NotifItem from './NotifItem.vue';
 
 	const props = withDefaults(
 		defineProps<{
@@ -20,16 +20,16 @@
 		}
 	);
 
-	const alertStore = useAlertStore();
+	const notifStore = useNotifStore();
 
-	const alerts = computed(() => alertStore.alerts);
+	const notifs = computed(() => notifStore.notifs);
 
 	const positionClass = computed(() => {
-		return `alert-list--${props.position}`;
+		return `notif-list--${props.position}`;
 	});
 
-	function removeAlert(id: string) {
-		alertStore.remove(id);
+	function removeNotif(id: string) {
+		notifStore.remove(id);
 	}
 </script>
 
@@ -38,7 +38,7 @@
 	@use '@/styles/abstracts/mixins' as mix;
 	@use '@/styles/abstracts/functions' as func;
 
-	.alert-list {
+	.notif-list {
 		position: fixed;
 		z-index: func.z('dropdown') + 100;
 		padding: vars.$spacing-md;
@@ -86,22 +86,22 @@
 	}
 
 	// Animations pour les transitions
-	.alert-transition-enter-active {
+	.notif-transition-enter-active {
 		transition: all 0.3s ease-out;
 	}
 
-	.alert-transition-leave-active {
+	.notif-transition-leave-active {
 		transition: all 0.3s ease-in;
 		position: absolute;
 		width: 100%;
 	}
 
-	.alert-transition-enter-from {
+	.notif-transition-enter-from {
 		opacity: 0;
 		transform: translateX(50px);
 	}
 
-	.alert-transition-leave-to {
+	.notif-transition-leave-to {
 		opacity: 0;
 		transform: translateX(50px);
 	}

@@ -57,8 +57,8 @@
 <script setup lang="ts">
 	import BaseIcon from '@/components/base/BaseIcon.vue';
 	import { isActiveRoute } from '@/config/navBar';
-	import { useNavStore } from '@/store/navBar';
-	import { NavItem } from '@/types/config/navBar';
+	import { useNavStore } from '@/stores/navBar';
+	import type { NavItem } from '@/types/config/navBar';
 	import { computed } from 'vue';
 	import { useRoute } from 'vue-router';
 

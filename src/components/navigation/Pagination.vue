@@ -103,7 +103,7 @@
 		// Sinon, calculer un sous-ensemble centré autour de la page courante
 		const sidePages = Math.floor(maxVisiblePages / 2);
 		let startPage = Math.max(1, currentPage - sidePages);
-		let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+		const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
 
 		// Ajuster startPage si on est proche de la fin
 		if (endPage === totalPages) {

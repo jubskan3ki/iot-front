@@ -20,7 +20,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 
 // Styles globaux
-import '@/assets/styles/main.scss';
+import '@/styles/main.scss';
 
 // Ajouter les icônes à la bibliothèque
 library.add(faUser, faHome, faCog, faSearch, faPlus, faEdit, faTrash, faSave, faCancel, faHeart, faGithub, faTwitter);

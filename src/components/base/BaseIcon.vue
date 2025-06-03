@@ -9,7 +9,7 @@
 		role="img"
 		:aria-label="name"
 	>
-		<font-awesome-icon
+		<FontAwesomeIcon
 			:icon="resolveIcon"
 			:size="resolveSize"
 			:style="{ color }"
@@ -230,8 +230,6 @@
 		if (props.name in ICON_MAP) {
 			return ICON_MAP[props.name];
 		}
-
-		console.warn(`Icon name "${props.name}" not found in icon map.`);
 		return ['fas', 'question'] as [string, string];
 	});
 

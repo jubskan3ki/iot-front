@@ -18,25 +18,33 @@
 │   │   │   └── BaseTextarea.vue
 │   │   ├── feature
 │   │   │   ├── alerts
+│   │   │   │   └── AlertCard.vue
+│   │   │   │   └── AlertDetails.vue
+│   │   │   │   └── AlertFilters.vue
+│   │   │   │   └── AlertList.vue
 │   │   │   ├── auth
+│   │   │   │   └── LoginForm.vue
+│   │   │   │   └── RegisterForm.vue
 │   │   │   ├── camera
+│   │   │   │   └── CameraControls.vue
+│   │   │   │   └── CameraStatus.vue
+│   │   │   │   └── CameraStream.vue
 │   │   │   ├── members
+│   │   │   │   └── MemberActions.vue
+│   │   │   │   └── MemberCard.vue
+│   │   │   │   └── MemberForm.vue
+│   │   │   │   └── MemberList.vue
 │   │   ├── feedback
-│   │   │   └── AlertItem.vue
-│   │   │   └── AlertList.vue
 │   │   │   └── EmptyState.vue
 │   │   │   └── ErrorMessage.vue
 │   │   │   └── Modal.vue
-│   │   │   └── Toast.vue
+│   │   │   └── NotifItem.vue
+│   │   │   └── NotifList.vue
 │   │   ├── layouts
 │   │   │   └── Footer.vue
-│   │   │   └── FooterContact.vue
-│   │   │   └── FooterContactItem.vue
-│   │   │   └── FooterSocial.vue
 │   │   │   └── Header.vue
 │   │   │   └── Section.vue
 │   │   ├── navigation
-│   │   │   └── Breadcrumb.vue
 │   │   │   └── MobileMenu.vue
 │   │   │   └── MobileMenuItem.vue
 │   │   │   └── MobileMenuToggle.vue
@@ -44,8 +52,6 @@
 │   │   │   └── NavbarItem.vue
 │   │   │   └── Pagination.vue
 │   │   │   └── PaginationItem.vue
-│   │   │   └── SideBar.vue
-│   │   │   └── SideBarItem.vue
 │   │   │   └── Tabs.vue
 │   │   │   └── TabsItem.vue
 │   │   ├── ui
@@ -53,20 +59,33 @@
 │   │   │   └── Avatar.vue
 │   │   │   └── Badge.vue
 │   │   │   └── Card.vue
-│   │   │   └── CTA.vue
-│   │   │   └── Hero.vue
-│   │   │   └── PortfolioSummary.vue
-│   │   │   └── ProgressBar.vue
-│   │   │   └── RatingStars.vue
-│   │   │   └── SectionHeading.vue
 │   │   │   └── Swiper.vue
 │   │   │   └── Tooltip.vue
 │   ├── composables
+│   │   └── useAlerts.ts
+│   │   └── useAuth.ts
+│   │   └── useCamera.ts
+│   │   └── useMembers.ts
+│   │   └── useNotifications.ts
 │   ├── config
+│   │   └── api.ts
+│   │   └── footer.ts
+│   │   └── images.ts
+│   │   └── navBar.ts
 │   │   └── routes.ts
+│   ├── layouts
+│   │   └── AuthLayout.vue
+│   │   └── DefaultLayout.vue
 │   ├── router
 │   │   └── index.ts
+│   │   └── routes.ts
 │   ├── stores
+│   │   └── alerts.ts
+│   │   └── auth.ts
+│   │   └── camera.ts
+│   │   └── members.ts
+│   │   └── navBar.ts
+│   │   └── notifications.ts
 │   ├── styles
 │   │   ├── abstracts
 │   │   │   └── functions.scss
@@ -78,7 +97,28 @@
 │   │   │   └── typography.scss
 │   │   └── main.scss
 │   ├── types
+│   │   ├── config
+│   │   │   └── footer.ts
+│   │   │   └── navBar.ts
+│   │   │   └── routes.ts
+│   │   ├── feature
+│   │   │   └── alert.ts
+│   │   │   └── auth.ts
+│   │   │   └── member.ts
+│   │   │   └── user.ts
+│   │   ├── store
+│   │   │   └── loader.ts
+│   │   │   └── modal.ts
+│   │   │   └── navBar.ts
+│   │   │   └── notifications.ts
+│   │   ├── utils
+│   │   │   └── api.ts
+│   │   └── env.d.ts
 │   ├── utils
+│   │   └── api.ts
+│   │   └── constants.ts
+│   │   └── helpers.ts
+│   │   └── validators.ts
 │   ├── views
 │   │   ├── auth
 │   │   │   └── LoginView.vue
@@ -89,8 +129,8 @@
 │   │   │   └── AddMemberView.vue
 │   │   │   └── MemberDetailView.vue
 │   │   │   └── MembersView.vue
+│   │   └── NotFoundView.vue
 │   └── App.vue
-│   └── env.d.ts
 │   └── main.ts
 │   └── style.css
 └── .gitignore
